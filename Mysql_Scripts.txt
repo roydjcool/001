@@ -1,0 +1,222 @@
+Mysql script
+
+Product Catalog Module
+
+CREATE TABLE Product (
+  ProductID INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(255) NOT NULL,
+  Description TEXT,
+  Price DECIMAL(10,2) NOT NULL,
+  Image VARCHAR(255),
+  CategoryID INT,
+  BrandID INT,
+  PRIMARY KEY (ProductID),
+  FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID),
+  FOREIGN KEY (BrandID) REFERENCES Brand(BrandID)
+);
+
+CREATE TABLE Category (
+  CategoryID INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(255) NOT NULL,
+  PRIMARY KEY (CategoryID)
+);
+
+CREATE TABLE Brand (
+  BrandID INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(255) NOT NULL,
+  PRIMARY KEY (BrandID)
+);
+
+CREATE TABLE Customer (
+  CustomerID INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(255) NOT NULL,
+  Email VARCHAR(255) NOT NULL,
+  ShippingAddress VARCHAR(255) NOT NULL,
+  PRIMARY KEY (CustomerID)
+);
+
+
+shopping cart module
+
+CREATE TABLE Product (
+  ProductID INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(255) NOT NULL,
+  Description TEXT,
+  Price DECIMAL(10,2) NOT NULL,
+  Image VARCHAR(255),
+  PRIMARY KEY (ProductID)
+);
+
+CREATE TABLE Cart (
+  CartID INT NOT NULL AUTO_INCREMENT,
+  CustomerID INT NOT NULL,
+  PRIMARY KEY (CartID),
+  FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
+
+CREATE TABLE CartItem (
+  CartItemID INT NOT NULL AUTO_INCREMENT,
+  CartID INT NOT NULL,
+  ProductID INT NOT NULL,
+  Quantity INT NOT NULL,
+  PRIMARY KEY (CartItemID),
+  FOREIGN KEY (CartID) REFERENCES Cart(CartID),
+  FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
+
+CREATE TABLE Order (
+  OrderID INT NOT NULL AUTO_INCREMENT,
+  CustomerID INT NOT NULL,
+  OrderDate DATE NOT NULL,
+  OrderTotal DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (OrderID),
+  FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
+
+CREATE TABLE OrderItem (
+  OrderItemID INT NOT NULL AUTO_INCREMENT,
+  OrderID INT NOT NULL,
+  ProductID INT NOT NULL,
+  Quantity INT NOT NULL,
+  PRIMARY KEY (OrderItemID),
+  FOREIGN KEY (OrderID) REFERENCES Order(OrderID),
+  FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
+
+
+SQlite script
+
+CREATE TABLE Product (
+  ProductID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Name TEXT NOT NULL,
+  Description TEXT,
+  Price DECIMAL NOT NULL,
+  Image TEXT
+);
+
+CREATE TABLE Cart (
+  CartID INTEGER PRIMARY KEY AUTOINCREMENT,
+  CustomerID INTEGER NOT NULL,
+  FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
+
+CREATE TABLE CartItem (
+  CartItemID INTEGER PRIMARY KEY AUTOINCREMENT,
+  CartID INTEGER NOT NULL,
+  ProductID INTEGER NOT NULL,
+  Quantity INTEGER NOT NULL,
+  FOREIGN KEY (CartID) REFERENCES Cart(CartID),
+  FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
+
+CREATE TABLE Order (
+  OrderID INTEGER PRIMARY KEY AUTOINCREMENT,
+  CustomerID INTEGER NOT NULL,
+  OrderDate DATE NOT NULL,
+  OrderTotal DECIMAL NOT NULL,
+  FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
+
+CREATE TABLE OrderItem (
+  OrderItemID INTEGER PRIMARY KEY AUTOINCREMENT,
+  OrderID INTEGER NOT NULL,
+  ProductID INTEGER NOT NULL,
+  Quantity INTEGER NOT NULL,
+  FOREIGN KEY (OrderID) REFERENCES Order(OrderID),
+  FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
+
+Checkout module
+
+CREATE TABLE shopping_cart (
+  id INT NOT NULL AUTO_INCREMENT,
+  item_name VARCHAR(255) NOT NULL,
+  item_quantity INT NOT NULL,
+  item_price DECIMAL(10,2) NOT NULL,
+  item_subtotal DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE order_summary (
+  id INT NOT NULL AUTO_INCREMENT,
+  item_name VARCHAR(255) NOT NULL,
+  item_quantity INT NOT NULL,
+  item_price DECIMAL(10,2) NOT NULL,
+  item_subtotal DECIMAL(10,2) NOT NULL,
+  order_total DECIMAL(10,2) NOT NULL,
+  shipping_cost DECIMAL(10,2) NOT NULL,
+  tax DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE shipping_options (
+  id INT NOT NULL AUTO_INCREMENT,
+  shipping_method VARCHAR(255) NOT NULL,
+  estimated_delivery_time VARCHAR(255) NOT NULL,
+  cost DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE payment_methods (
+  id INT NOT NULL AUTO_INCREMENT,
+  payment_method VARCHAR(255) NOT NULL,
+  credit_card_type VARCHAR(255) NOT NULL,
+  credit_card_number VARCHAR(255) NOT NULL,
+  expiration_date DATE NOT NULL,
+  security_code VARCHAR(255) NOT NULL,
+  holder_name VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE billing_information (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  state_province VARCHAR(255) NOT NULL,
+  zip_postal_code VARCHAR(255) NOT NULL,
+  country VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE shipping_address (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  state_province VARCHAR(255) NOT NULL,
+  zip_postal_code VARCHAR(255) NOT NULL,
+  country VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE order_confirmation (
+  order_number INT NOT NULL,
+  date DATE NOT NULL,
+  item_name VARCHAR(255) NOT NULL,
+  item_quantity INT NOT NULL,
+  item_price DECIMAL(10,2) NOT NULL,
+  subtotal DECIMAL(10,2) NOT NULL,
+  total DECIMAL(10,2) NOT NULL,
+  shipping_cost DECIMAL(10,2) NOT NULL,
+  tax DECIMAL(10,2) NOT NULL,
+  shipping_method VARCHAR(255) NOT NULL,
+  estimated_delivery_time VARCHAR(255) NOT NULL,
+  payment_method VARCHAR(255) NOT NULL,
+  billing_name VARCHAR(255) NOT NULL,
+  billing_address VARCHAR(255) NOT NULL,
+  billing_city VARCHAR(255) NOT NULL,
+  billing_state_province VARCHAR(255) NOT NULL,
+  billing_zip_postal_code VARCHAR(255) NOT NULL,
+  billing_country VARCHAR(255) NOT NULL,
+  billing_phone_number VARCHAR(255) NOT NULL,
+  shipping_name VARCHAR(255) NOT NULL,
+  shipping_address VARCHAR(255) NOT NULL,
+  shipping_city VARCHAR(255) NOT NULL,
+  shipping_state_province VARCHAR(255) NOT NULL,
+  shipping_zip_postal_code VARCHAR(255) NOT NULL,
+  shipping_country VARCHAR(255) NOT NULL,
+  shipping_phone_number VARCHAR(255) NOT NULL
+);

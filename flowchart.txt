@@ -1,0 +1,440 @@
+                              +--------+
+                              |        |
+                              |  Home  |
+                              |        |
+                              +--------+
+                                     |
+                                     |
+                                     v
+                              +--------+
+                              |        |
+                              | Catalog|
+                              |        |
+                              +--------+
+                                     |
+                                     |
+                                     v
+                              +-------------+
+                              |             |
+                              |  Product    |
+                              |  Category   |
+                              |  Page       |
+                              |             |
+                              +-------------+
+                                     |
+                                     |
+  +-------------+                   v
+  |             |            +-------------+
+  |  Product    +------------>             |
+  |  Page       |            | Add to      |
+  |             |            | Wishlist    |
+  +-------------+            |             |
+                             +-------------+
+                                     |
+                                     |
+                                     v
+                              +-------------+
+                              |             |
+                              | Add to      |
+                              | Cart        |
+                              |             |
+                              +-------------+
+                                     |
+                                     |
+                                     v
+                              +--------+
+                              |        |
+                              | Cart   |
+                              |        |
+                              +--------+
+                                     |
+                                     |
+                                     v
+                              +--------+
+                              |        |
+                              | Check  |
+                              | Out    |
+                              |        |
+                              +--------+
+                                     |
+                                     |
+                                     v
+                              +-------------+
+                              |             |
+                              | Select      |
+                              | Payment     |
+                              | Method      |
+                              |             |
+                              +-------------+
+                                     |
+                                     |
+                                     v
+                              +--------+
+                              |        |
+                              | Order  |
+                              | Confirm|
+                              |        |
+                              +--------+
+
+
+
+Agile model - E-Commerce website(ARYA)
+
+Here is a general overview of the Agile process for developing an e-commerce website:
+
+1. Define the project vision and high-level requirements: The development team works with the customer to define the overall goals and objectives of the project, as well as the key features and functionality that the website will need to have.
+
+2. Break the project into small, manageable chunks: The development team breaks the project down into smaller pieces, called "user stories," which represent specific features or functionality that the website will need to have.
+
+3. Prioritize the user stories: The development team works with the customer to prioritize the user stories based on their importance and value to the business.
+
+4. Develop and deliver the user stories in short sprints: The development team works through the user stories one at a time, delivering completed features to the customer at the end of each sprint.
+
+5. Get feedback and adjust the plan: After each sprint, the development team reviews the progress made and solicits feedback from the customer. Based on this feedback, the team adjusts the plan for the next sprint to ensure that the project stays on track and meets the customer's needs.
+
+
+High level requirements:
+
+A user-friendly interface: The website should be easy to navigate and use, with clear and intuitive menus, buttons, and links.
+
+Product catalog: The website should have a comprehensive catalog of products, including descriptions, images, and pricing information.
+
+Search and filtering capabilities: Customers should be able to easily search for and filter products based on various criteria, such as price, color, size, and more.
+
+Shopping cart: Customers should be able to add items to their shopping cart and view the contents of their cart at any time.
+
+Checkout process: The website should have a smooth and secure checkout process, including options for different payment methods.
+
+Order tracking: Customers should be able to track the status of their orders, including delivery status and any issues that may arise.
+
+Customer account management: Customers should be able to create and manage their own accounts, including viewing past orders and saving payment and shipping information.
+
+Mobile responsiveness: The website should be optimized for use on mobile devices, with a responsive design that adjusts to different screen sizes and resolutions.
+
+Security: The website should have appropriate security measures in place to protect customer data and prevent fraud.
+
+Scalability: The website should be able to handle a large volume of traffic and transactions without performance issues.
+
+Integration with other systems: The website may need to integrate with other systems, such as inventory management systems or shipping carriers.
+
+Marketing and analytics: The website should have features for marketing and analyzing customer behavior, such as email marketing campaigns and Google Analytics integration.
+
+
+dfd level 0 ARYA
+
+                               +----------------+
+                               |                |
+                               |  External      |
+                               |  Customers     |
+                               |                |
+                               +----------------+
+                                     |
+                                     |
+                                     v
+                               +----------------+
+                               |                |
+                               |  E-Commerce    |
+                               |  Website       |
+                               |                |
+                               +----------------+
+                                     |
+                                     |
+                                     v
+                               +----------------+
+                               |                |
+                               |  External      |
+                               |  Payment       |
+                               |  Providers     |
+                               |                |
+                               +----------------+
+
+
+dfd level 1 for an e-commerce website
+
+                               +----------------+
+                               |                |
+                               |  External      |
+                               |  Customers     |
+                               |                |
+                               +--------+-------+
+                                        |
+                                        |
+                                        v
+                               +----------------+
+                               |                |
+                               |  Customer      |
+                               |  Account       |
+                               |  Management    |
+                               |                |
+                               +--------+-------+
+                                        |
+                                        |
+                                        v
+                               +----------------+
+                               |                |
+                               |  Product       |
+                               |  Catalog       |
+                               |                |
+                               +--------+-------+
+                                        |
+                                        |
+                                        v
+                               +----------------+
+                               |                |
+                               |  Shopping      |
+                               |  Cart          |
+                               |                |
+                               +--------+-------+
+                                        |
+                                        |
+                                        v
+                               +----------------+
+                               |                |
+                               |  Checkout      |
+                               |                |
+                               +--------+-------+
+                                        |
+                                        |
+                                        v
+                               +----------------+
+                               |                |
+                               |  Order         |
+                               |  Processing    |
+                               |                |
+                               +--------+-------+
+                                        |
+                                        |
+                                        v
+                               +----------------+
+                               |                |
+                               |  External      |
+                               |  Payment       |
+                               |  Providers     |
+                               |                |
+                               +----------------+
+
+
+
+Modules of website
+
+Product catalog: This module displays the products available for sale on the website, including descriptions, images, and pricing information.
+
+Shopping cart: This module allows customers to add items to their cart and view the contents of their cart at any time.
+
+Checkout: This module handles the process of completing a purchase, including selecting a payment method and entering billing and shipping information.
+
+Order tracking: This module allows customers to track the status of their orders, including delivery status and any issues that may arise.
+
+Customer account management: This module allows customers to create and manage their own accounts, including viewing past orders and saving payment and shipping information.
+
+Mobile responsiveness: This module ensures that the website is optimized for use on mobile devices, with a responsive design that adjusts to different screen sizes and resolutions.
+
+Security: This module includes measures to protect customer data and prevent fraud, such as encryption and secure payment processing.
+
+Integration with other systems: This module handles integration with other systems, such as inventory management systems or shipping carriers.
+
+Marketing and analytics: This module includes features for marketing and analyzing customer behavior, such as email marketing campaigns and Google Analytics integration.
+
+Customer service: This module includes features for managing customer inquiries and complaints, such as a customer support ticket system or live chat function.
+
+
+modules descriptions
+
+1. product catalog - product, category, brand, customer. 
+
+Product:
+
+Product ID (primary key)
+Name
+Description
+Price
+Image
+Brand ID (foreign key)
+Category ID (foreign key)
+Category:
+
+Category ID (primary key)
+Name
+Brand:
+
+Brand ID (primary key)
+Name
+Customer:
+
+Customer ID (primary key)
+Name
+Email address
+Shipping address
+
+
+SQlite script
+
+CREATE TABLE Product (
+  ProductID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Name TEXT NOT NULL,
+  Description TEXT,
+  Price DECIMAL NOT NULL,
+  Image TEXT,
+  CategoryID INTEGER,
+  BrandID INTEGER,
+  FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID),
+  FOREIGN KEY (BrandID) REFERENCES Brand(BrandID)
+);
+
+CREATE TABLE Category (
+  CategoryID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Name TEXT NOT NULL
+);
+
+CREATE TABLE Brand (
+  BrandID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Name TEXT NOT NULL
+);
+
+CREATE TABLE Customer (
+  CustomerID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Name TEXT NOT NULL,
+  Email TEXT NOT NULL,
+  ShippingAddress TEXT NOT NULL
+);
+
+2. shopping cart module
+
+Product:
+
+Product ID (primary key)
+Name
+Description
+Price
+Image
+Cart:
+
+Cart ID (primary key)
+Customer ID (foreign key)
+CartItem:
+
+Cart item ID (primary key)
+Cart ID (foreign key)
+Product ID (foreign key)
+Quantity
+Order:
+
+Order ID (primary key)
+Customer ID (foreign key)
+Order date
+Order total
+OrderItem:
+
+Order item ID (primary key)
+Order ID (foreign key)
+Product ID (foreign key)
+Quantity
+
+
+
+
+Checkout Modules
+
+Shopping cart:
+Item name
+Item quantity
+Item price
+Subtotal for the item
+Order summary:
+Item name
+Item quantity
+Item price
+Subtotal for the item
+Total for the order
+Shipping cost
+Tax
+Shipping options:
+Shipping method (e.g. standard, expedited)
+Estimated delivery time
+Cost
+Payment methods:
+Payment method (e.g. credit card, debit card, PayPal)
+Credit card type (e.g. Visa, Mastercard)
+Credit card number
+Expiration date
+Security code
+Holder's name
+Billing information:
+Name
+Address
+City
+State/Province
+Zip/Postal code
+Country
+Phone number
+Shipping address:
+Name
+Address
+City
+State/Province
+Zip/Postal code
+Country
+Phone number
+Promo code:
+Code
+Description of the discount
+Expiration date
+Order confirmation:
+Order number
+Date
+Item name
+Item quantity
+Item price
+Subtotal for the item
+Total for the order
+Shipping cost
+Tax
+Shipping method
+Estimated delivery time
+Payment method
+Billing address
+Shipping address
+
+
+Order:
+Order number: a unique identifier for the order
+Date: the date the order was placed
+Customer: the customer who placed the order
+Item: the items in the order
+Total cost: the total cost of the order, including shipping and tax
+Payment method: the method used to pay for the order
+Shipping: the delivery details for the order
+Customer:
+Name: the customer's name
+Email: the customer's email address
+Phone number: the customer's phone number
+Item:
+Name: the name of the product
+Quantity: the number of units of the product
+Price: the price of a single unit of the product
+Subtotal: the total cost of the product, based on the quantity and price
+Shipping:
+Shipping method: the method used to deliver the order (e.g. standard, expedited)
+Tracking number: a unique identifier for the delivery
+Delivery status: the current status of the delivery (e.g. shipped, in transit, delivered)
+Delivery date: the expected date of delivery
+Delivery address: the address where the order will be delivered
+Tracking history: a record of the events that have occurred during the delivery process
+Tracking number:
+Number: the unique identifier for the delivery
+Delivery status:
+Status: the current status of the delivery (e.g. shipped, in transit, delivered)
+Delivery date:
+Date: the expected date of delivery
+Delivery address:
+Name: the name of the person or business at the delivery address
+Address: the street address of the delivery location
+City: the city of the delivery location
+State/Province: the state or province of the delivery location
+Zip/Postal code: the zip or postal code of the delivery location
+Country: the country of the delivery location
+Delivery tracking history:
+Date: the date and time of the event
+Event: a description of the event (e.g. shipped, in transit, delivered)
+
+
