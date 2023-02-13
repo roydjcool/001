@@ -25,7 +25,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-class SubCategory(models.Model):
+class SubCategory(models.Model):        
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     slug = models.CharField(max_length=150, null=False, blank=False)
     name = models.CharField(max_length=150, null=False, blank=False)
@@ -43,7 +43,7 @@ class SubCategory(models.Model):
 
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, default=False)
+    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     slug = models.CharField(max_length=150, null=False, blank=False)
     name = models.CharField(max_length=150, null=False, blank=False)
     image = models.ImageField(upload_to=get_file_path, null=True, blank=True)
