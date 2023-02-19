@@ -1,5 +1,7 @@
 Mysql script
 
+#f7bf50
+
 Product Catalog Module
 
 CREATE TABLE Product (

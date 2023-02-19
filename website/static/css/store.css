@@ -1,3 +1,7 @@
 .navbar-collapse > ul > li:hover ul{
     display:block;
 }
+
+.footer-background{
+    background-color: #f7bf50 !important;
+} 
