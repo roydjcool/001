@@ -9,7 +9,10 @@ urlpatterns = [
     path('home',views.home, name="home"),
     path('collections', views.collections, name="collections"),
     path('collections/<str:slug>', views.collectionsview, name="collectionsview"),
-    path('collections/<str:cate_slug>/<str:prod_slug>', views.productview, name="productview")
+    path('collections/<str:cate_slug>/<str:prod_slug>', views.productview, name="productview"),
+    path('mens', views.mens, name="mens"),
+    path('kids', views.kids, name="kids"),
+    path('womens', views.womens, name="womens"),
 ]
 
 if settings.DEBUG:

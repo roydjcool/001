@@ -22,7 +22,43 @@ def collectionsview(request, slug):
     else:
         messages.warning(request, "No Category Found")
         return redirect('collections')
-    
+
+def mens(request):
+    category = Category.objects.get(name='mens', status=0)
+    products = Product.objects.filter(category=category, status=0)
+    context = {
+        'category': category,
+        'products': products,
+    }
+    return render(request, 'store/products/men.html', context)
+
+def womens(request):
+    category = Category.objects.get(name='womens', status=0)
+    products = Product.objects.filter(category=category, status=0)
+    context = {
+        'category': category,
+        'products': products,
+    }
+    return render(request, 'store/products/women.html', context)
+
+def kids(request):
+    category = Category.objects.get(name='kids', status=0)
+    products = Product.objects.filter(category=category, status=0)
+    context = {
+        'category': category,
+        'products': products,
+    }
+    return render(request, 'store/products/kids.html', context)
+
+# def mens(request):
+#     category = Category.objects.get(name='collections', status=0)
+#     products = Product.objects.filter(category=category, status=0)
+#     context = {
+#         'category': category,
+#         'products': products,
+#     }
+#     return render(request, 'store/products/collections.html', context)
+
 # def subcateview(request):
 #     categories = Category.objects.all()
 #     selected_category_id = request.GET.get('category')
@@ -49,3 +85,5 @@ def productview(request, cate_slug, prod_slug):
         messages.error(request, "No Category Found")
         return redirect('collections')
     return render(request, "store/products/view.html", context)
+
+
