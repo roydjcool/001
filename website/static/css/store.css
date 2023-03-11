@@ -1,11 +1,42 @@
 .navbar-collapse > ul > li:hover ul{
-    display:block;
+display:block;
 }
 
 .footer-background{
-    background-color: #f7bf50 !important;
+background-color: #f7bf50 !important;
 } 
 
-.a{
+*{
+text-decoration: none;
+}
+
+.category-image img {
+max-width: 100%;
+width: 100% !important;
+height: auto !important;
+}
+.card-body .col-md-4 {
+position: relative;
+}
+
+a{
     text-decoration: none;
+}
+
+.product-viewtag {
+    background-color: red;
+    color: #fff;
+    font-size: 11px;
+    line-height: 1;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 17px;
+    margin-left: 21.5rem;
+    padding: 7px 10px;
+    font-weight: 600;
+    min-width: 45px;
+}
+body > div label s {
+    text-decoration: line-through;
 }

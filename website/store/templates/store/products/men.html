@@ -21,7 +21,7 @@
                         <a href="{% url 'productview' category.slug product.slug %}">
                             <div class="card-body" style="height: 450px;">
                                 <div class="category-image" >
-                                    <img src=" {{ product.image.url }} " alt="Product image" style="width:275px; height: 366.66px;" />
+                                    <img src=" {{ product.image.url }} " alt="Product image" style="width:100%; height: auto;" />
                                 </div>
                                 <h4 style="text-align:center;">  {{product.name}} </h4>
                                 <span class="float-start"> {{ product.original_price | stringformat:'d' }} </span>

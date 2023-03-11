@@ -19,9 +19,9 @@
                 <div class="col-md-3">
                     <div class="card">
                         <a href="{% url 'collectionsview' items.slug %}">
-                            <div class="card-body" style="height: 450px;">
+                            <div class="card-body" style="height: auto;">
                                 <div class="category-image" >
-                                    <img src=" {{ items.image.url }} " alt="Category image" style="width:275px; height: 366.66px;" />
+                                    <img src=" {{ items.image.url }} " alt="Category image" style="width:100%;" />
                                 </div>
                                 <h4 style="text-align:center;">  {{items.name}} </h4>
                             </div>

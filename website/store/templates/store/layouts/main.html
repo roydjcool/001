@@ -5,30 +5,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-    {% block title %}{% endblock title %}
+  {% block title %}{% endblock title %}
 </title>
 
-<link type="text/css" href="./static/css/store.css" rel="stylesheet" />
-<link type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-<style>
-    a{
-        text-decoration: none;
-    }
+{% load static %}
 
-    .product-viewtag{
-      background-color: red;
-      color: #fff;
-      font-size: 11px;
-      line-height: 1;
-      position: absolute;
-      text-align: center;
-      text-transform: uppercase;
-      top: 22px;
-      margin-left: 17.5rem;
-      padding: 7px 10px;
-      font-weight: 600;
-      min-width: 45px;
-    }
+<link type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+<link type="text/css" href="{% static 'css/store.css' %}" rel="stylesheet"/>
+<style>
+
 
 </style>
 
@@ -36,121 +21,121 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-          <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="./static/images/logo/arya-logos_transparent.png" alt="" height="55px" width="60px"></a>
-              <div class="collapse navbar-collapse" id="navbarNav">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src= {% static '/images/logo/arya-logos_transparent.png' %} alt="" height="55px" width="60px"></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+          
+                <li class="nav-item dropdown">
+                    
+                  <a class="nav-link dropdown" href="{% url 'mens'%}" onmousehover="dropdown" aria-expanded="false">Men</a>
                 
-                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                  </li>
-            
-                  <li class="nav-item dropdown">
-                      
-                    <a class="nav-link dropdown" href="{% url 'mens'%}" onmousehover="dropdown" aria-expanded="false">Men</a>
-                  
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">T-Shirt</a></li>
-                      <li><a class="dropdown-item" href="#">Shirt</a></li>
-                      <li><a class="dropdown-item" href="#">Jeans</a></li>
-                      <li><a class="dropdown-item" href="#">Trousers</a></li>
-                    </ul>
-                  </li>
-      
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="{% url 'womens' %}" onmousehover="dropdown" aria-expanded="false">
-                      Women
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">T-Shirt</a></li>
-                      <li><a class="dropdown-item" href="#">Shirt</a></li>
-                      <li><a class="dropdown-item" href="#">Jeans</a></li>
-                      <li><a class="dropdown-item" href="#">Trousers</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="{% url 'kids' %}" onmousehover="dropdown" aria-expanded="false">
-                      Kids
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">T-Shirt</a></li>
-                      <li><a class="dropdown-item" href="#">Shirt</a></li>
-                      <li><a class="dropdown-item" href="#">Jeans</a></li>
-                      <li><a class="dropdown-item" href="#">Trousers</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown" href="{% url 'collections' %}" onmousehover="dropdown" aria-expanded="false">
-                      Collection
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Wallet</a></li>
-                      <li><a class="dropdown-item" href="#">Belt</a></li>
-                      <li><a class="dropdown-item" href="#">Bags</a></li>
-                      <li><a class="dropdown-item" href="#">Bagpacks</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                
-              </div>
-        </div>
-      </nav>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">T-Shirt</a></li>
+                    <li><a class="dropdown-item" href="#">Shirt</a></li>
+                    <li><a class="dropdown-item" href="#">Jeans</a></li>
+                    <li><a class="dropdown-item" href="#">Trousers</a></li>
+                  </ul>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown" href="{% url 'womens' %}" onmousehover="dropdown" aria-expanded="false">
+                    Women
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">T-Shirt</a></li>
+                    <li><a class="dropdown-item" href="#">Shirt</a></li>
+                    <li><a class="dropdown-item" href="#">Jeans</a></li>
+                    <li><a class="dropdown-item" href="#">Trousers</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown" href="{% url 'kids' %}" onmousehover="dropdown" aria-expanded="false">
+                    Kids
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">T-Shirt</a></li>
+                    <li><a class="dropdown-item" href="#">Shirt</a></li>
+                    <li><a class="dropdown-item" href="#">Jeans</a></li>
+                    <li><a class="dropdown-item" href="#">Trousers</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown" href="{% url 'collections' %}" onmousehover="dropdown" aria-expanded="false">
+                    Collection
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Wallet</a></li>
+                    <li><a class="dropdown-item" href="#">Belt</a></li>
+                    <li><a class="dropdown-item" href="#">Bags</a></li>
+                    <li><a class="dropdown-item" href="#">Bagpacks</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              
+            </div>
+      </div>
+    </nav>
 
 {% block content %}
 
 {% endblock content %}
 
 <footer>
-    <div class="footer-padding" class="footer-background">
-        <div class="container">
-            <div class="row justify-content-between" >
-                <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
-                    <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle" style="">
-                            <h4>Quick Links</h4>
-                            <ul style="list-style-type: none; padding:0; margin:0;">
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="#"> Offers & Discounts</a></li>
-                                <li><a href="contact.html">  Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
-                    <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle">
-                            <h4>New Products</h4>
-                            <ul style="list-style-type: none; padding:0; margin:0;">
-                                <li><a href="women.html">Woman Cloth</a></li>
-                                <li><a href="men.html">Men Cloth</a></li>
-                                <li><a href="kids.html"> kids Accessories</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
-                    <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle">
-                            <h4>Support</h4>
-                            <ul style="list-style-type: none; padding:0; margin:0;">
-                             <li><a href="faq.html">Frequently Asked Questions</a></li>
-                             <li><a href="tnc.html">Terms & Conditions</a></li>
-                             <li><a href="pp.html">Privacy Policy</a></li>
-                             <li><a href="#">Report a Payment Issue</a></li>
-                         </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer bottom -->
-        </div>
-    </div>
+  <div class="footer-padding" class="footer-background">
+      <div class="container">
+          <div class="row justify-content-between" >
+              <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+                  <div class="single-footer-caption mb-50">
+                      <div class="footer-tittle" style="">
+                          <h4>Quick Links</h4>
+                          <ul style="list-style-type: none; padding:0; margin:0;">
+                              <li><a href="about.html">About</a></li>
+                              <li><a href="#"> Offers & Discounts</a></li>
+                              <li><a href="contact.html">  Contact Us</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+                  <div class="single-footer-caption mb-50">
+                      <div class="footer-tittle">
+                          <h4>New Products</h4>
+                          <ul style="list-style-type: none; padding:0; margin:0;">
+                              <li><a href="women.html">Woman Cloth</a></li>
+                              <li><a href="men.html">Men Cloth</a></li>
+                              <li><a href="kids.html"> kids Accessories</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                  <div class="single-footer-caption mb-50">
+                      <div class="footer-tittle">
+                          <h4>Support</h4>
+                          <ul style="list-style-type: none; padding:0; margin:0;">
+                            <li><a href="faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="tnc.html">Terms & Conditions</a></li>
+                            <li><a href="pp.html">Privacy Policy</a></li>
+                            <li><a href="#">Report a Payment Issue</a></li>
+                        </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Footer bottom -->
+      </div>
+  </div>
 <!-- Footer End-->
 
 </footer>
