@@ -19,13 +19,13 @@
                 <div class="col-md-3">
                     <div class="card">
                         <a href="{% url 'productview' category.slug product.slug %}">
-                            <div class="card-body" style="height: 450px;">
+                            <div class="card-body">
                                 <div class="category-image" >
                                     <img src=" {{ product.image.url }} " alt="Product image" style="width:100%; height: auto;" />
                                 </div>
                                 <h4 style="text-align:center;">  {{product.name}} </h4>
-                                <span class="float-start"> {{ product.original_price | stringformat:'d' }} </span>
-                                <span class="float-end"> {{ product.selling_price | stringformat:'d' }} </span>
+                                <span class="float-start"> Rs {{ product.original_price | stringformat:'d' }}</span>
+                                <span class="float-end">Rs {{ product.selling_price | stringformat:'d' }} </span>
                             </div>
                         </a>
                     </div>

@@ -20,23 +20,45 @@ position: relative;
 }
 
 a{
-    text-decoration: none;
+text-decoration: none;
 }
 
 .product-viewtag {
-    background-color: red;
-    color: #fff;
-    font-size: 11px;
-    line-height: 1;
-    position: absolute;
-    text-align: center;
-    text-transform: uppercase;
-    top: 17px;
-    margin-left: 21.5rem;
-    padding: 7px 10px;
-    font-weight: 600;
-    min-width: 45px;
+background-color: red;
+color: #fff;
+font-size: 11px;
+line-height: 1;
+position: absolute;
+text-align: center;
+text-transform: uppercase;
+top: 17px;
+margin-left: 21.5rem;
+padding: 7px 10px;
+font-weight: 600;
+min-width: 45px;
 }
 body > div label s {
-    text-decoration: line-through;
+text-decoration: line-through;
+}
+
+.footer-padding {
+padding: 20px;
+}
+.card-body h4 {
+text-align: left !important;
+margin-top: 10px;
+font-size: 20px;
+}
+
+
+.float-start {
+text-decoration: line-through;
+color: red;
+}
+
+.float-end {
+color: green;
+}
+.card-body{
+    height: 375px;
 }
