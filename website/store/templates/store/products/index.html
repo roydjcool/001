@@ -11,29 +11,37 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col">
             <h1>{{ category.name }} </h1>
-            <br>
-            <div class="row">
-            {% for items in products %}
-                <div class="col-md-3">
-                    <div class="card">
-                        <a href="{% url 'productview' items.category.slug items.slug %}">
-                            <div class="card-body" style="height: auto;">
-                                <div class="category-image" >
-                                    <img src=" {{ items.image.url }} " alt="Product image" style="width:100%; height: auto;" />
-                                </div>
-                                <h4 style="text-align:center;">  {{items.name}} </h4>
-                                <span class="float-start"> {{ items.original_price | stringformat:'d' }} </span>
-                                <span class="float-end"> {{ items.selling_price | stringformat:'d' }} </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>           
-            {% endfor %}
-            </div>
         </div>
+    </div>
+    <div class="row">
+        {% for items in products %}
+            <div class="col-12 mt-3 mb-3 col-md-4 col-sm-6 col-lg-3">
+                <div class="card">
+                    <a href="{% url 'productview' items.category.slug items.slug %}">
+                        <div class="card-body p-3">
+                            <div class="category-image">
+                                <img src=" {{ items.image.url }} " alt="Product image" />
+                            </div>
+                            <h4 style="text-align:center;">  {{items.name}} </h4>
+                            <span class="float-start"> {{ items.original_price | stringformat:'d' }} </span>
+                            <span class="float-end"> {{ items.selling_price | stringformat:'d' }} </span>
+                        </div>
+                    </a>
+                </div>
+            </div>           
+        {% endfor %}
     </div>
 </div>
 <br><br>
 {% endblock content %}
+
+{% comment %} <div class="card-body p-3">
+    <div class="category-image" style="background-image: url({{ items.image.url }}); height:23rem; background-repeat: no-repeat;">
+        {% comment %} <img src=" {{ items.image.url }} " alt="Product image" /> 
+    </div>
+    <h4 style="text-align:center;">  {{items.name}} </h4>
+    <span class="float-start"> {{ items.original_price | stringformat:'d' }} </span>
+    <span class="float-end"> {{ items.selling_price | stringformat:'d' }} </span>
+</div> {% endcomment %}

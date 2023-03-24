@@ -3,6 +3,7 @@ from . import views
 
 from django.conf import settings
 from django.conf.urls.static import static
+from store.controller import authview
 
 urlpatterns = [
     path('',views.home, name="home"),
@@ -13,6 +14,10 @@ urlpatterns = [
     path('mens', views.mens, name="mens"),
     path('kids', views.kids, name="kids"),
     path('womens', views.womens, name="womens"),
+
+    path('register', authview.register, name="register" ),
+    path('login', authview.loginpage, name="loginpage" ),
+    path('logout', authview.logoutpage, name="logoutpage"),
 ]
 
 if settings.DEBUG:
