@@ -1,0 +1,102 @@
+{% extends 'store/layouts/main.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+<div class="py-3 breadcrumb" style="background:#f7bf50;">
+<a class="text-white" href="{% url 'home' %}">Home /</a>
+<a class="text-white" href="{% url 'cart' %}">Cart /</a>
+</div>
+</div>
+<div class="wrapper">
+  <div id="table" class="bg-white rounded">
+        <hr class="items">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-uppercase header">item</th>
+                        <th scope="col" class="text-uppercase">Quantity</th>
+                        <th scope="col" class="text-uppercase">price each</th>
+                        <th scope="col" class="text-uppercase">total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if cart %}
+                        {% for item in cart %}
+                            <tr>{{item}}</tr>
+                            <tr>
+                                <td class="item">
+                                    <div class="d-flex align-items-start">
+                                        <img src= "{{item.product.image.url}}" alt="">
+                                    </div>
+                                </td>
+                                <td>{{item.product.cart.product_qty}}</td>
+                                <td class="d-flex flex-column">${{item.product.original_price}}</td>
+                                <td class="font-weight-bold"> {{item.product.selling_price}}
+                                    <div class="close">&times;</div>
+                                    <button class="d-flex justify-content-end align-items-end btn border">+ Add to
+                                    cart</button>
+                                </td>
+                            </tr>
+                        {% endfor %}   
+                    {% else %}
+                     <h4> Your Cart is empty please add some item</h4>
+                    {% endif %} 
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <div class="text-muted">
+            <button class="btn" type="button" data-toggle="collapse" data-target="#table" aria-expanded="false"
+                aria-controls="table">
+                Hide
+                <span class="fas fa-minus"></span>
+            </button>
+        </div>
+        <div class="d-flex flex-column justify-content-end align-items-end">
+            <div class="d-flex px-3 pr-md-5 py-1 subtotal">
+                <div class="px-4">Subtotal</div>
+                <div class="h5 font-weight-bold px-md-2">$1,340</div>
+            </div>
+            <div class="text-muted tag">
+                +add all the items to cart <span class="fas fa-shopping-cart pl-1"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-5">
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-12">
+        {% comment %} <div class="card shadow product_data">
+            <div class="card-body">
+               {% if cart%}
+                 {% for item in cart %}
+                   
+
+
+                 {% endfor %}   
+               {% else %}
+                <h4> Your Cart is empty please add some item</h4>
+               {% endif %} 
+            </div>
+        </div> {% endcomment %}
+       
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<br><br>
+
+
+{% endblock content %}

@@ -3,7 +3,7 @@ from . import views
 
 from django.conf import settings
 from django.conf.urls.static import static
-from store.controller import authview
+from store.controller import authview, cart
 
 urlpatterns = [
     path('',views.home, name="home"),
@@ -18,6 +18,10 @@ urlpatterns = [
     path('register', authview.register, name="register" ),
     path('login', authview.loginpage, name="loginpage" ),
     path('logout', authview.logoutpage, name="logoutpage"),
+
+    path('add-to-cart', cart.addtocart, name="addtocart"),
+    path('cart', cart.viewcart, name="cart")
+   
 ]
 
 if settings.DEBUG:

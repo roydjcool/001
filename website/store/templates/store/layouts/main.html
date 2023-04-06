@@ -18,9 +18,12 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 <!-- Default theme -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+ {% comment %} fafa icon cdn {% endcomment %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+<link type="text/css" href="{% static 'css/cart.css' %}" rel="stylesheet"/>
 <link type="text/css" href="{% static 'css/store.css' %}" rel="stylesheet"/>
+
 </head>
 
 <body>
@@ -38,7 +41,7 @@
   </div>
 </div>
 <div class="container-fluid">  
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     
       <a class="navbar-brand" href="{% url 'home' %}">
         <img src="{% static '/images/logo/arya-logos_transparent.png' %}" alt="" height="55px" width="60px">
@@ -84,18 +87,20 @@
               <li><a class="dropdown-item" href="#">Wallet</a></li>
               <li><a class="dropdown-item" href="#">Belt</a></li>
               <li><a class="dropdown-item" href="#">Bags</a></li>
-                    <li><a class="dropdown-item" href="#">Bagpacks</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form class="d-flex" role="search">
+              <li><a class="dropdown-item" href="#">Bagpacks</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'cart' %}" cart ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+          </li>
+               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
               </form>
             </div>
       </div>
     </nav>
-    </div>
+</div>
     
 
 {% block content %}
