@@ -19,28 +19,26 @@
                 <thead>
                     <tr>
                         <th scope="col" class="text-uppercase header">item</th>
+                        <th scope="col" class="text-uppercase">Name</th>
                         <th scope="col" class="text-uppercase">Quantity</th>
-                        <th scope="col" class="text-uppercase">price each</th>
-                        <th scope="col" class="text-uppercase">total</th>
+                        <th scope="col" class="text-uppercase">Price</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% if cart %}
                         {% for item in cart %}
-                            <tr>{{item}}</tr>
+                            {% comment %} <tr>{{item.product_qty}}</tr> {% endcomment %}
                             <tr>
                                 <td class="item">
                                     <div class="d-flex align-items-start">
                                         <img src= "{{item.product.image.url}}" alt="">
                                     </div>
                                 </td>
-                                <td>{{item.product.cart.product_qty}}</td>
-                                <td class="d-flex flex-column">${{item.product.original_price}}</td>
-                                <td class="font-weight-bold"> {{item.product.selling_price}}
-                                    <div class="close">&times;</div>
-                                    <button class="d-flex justify-content-end align-items-end btn border">+ Add to
-                                    cart</button>
-                                </td>
+                            <td> {{item.product.slug}} </td>
+                                <td>{{item.product_qty}}</td>
+                                <td class="d-flex flex-column">{{item.product.selling_price | stringformat:'d'}}
+                                    <div><button class="btn-danger">Remove</button>
+                                </div></td>
                             </tr>
                         {% endfor %}   
                     {% else %}
@@ -61,7 +59,7 @@
         <div class="d-flex flex-column justify-content-end align-items-end">
             <div class="d-flex px-3 pr-md-5 py-1 subtotal">
                 <div class="px-4">Subtotal</div>
-                <div class="h5 font-weight-bold px-md-2">$1,340</div>
+                <div class="h5 font-weight-bold px-md-2"></div>
             </div>
             <div class="text-muted tag">
                 +add all the items to cart <span class="fas fa-shopping-cart pl-1"></span>
