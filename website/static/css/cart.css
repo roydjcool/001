@@ -161,8 +161,8 @@ div.new{
 }
 td .close,
 td .btn{
-    opacity: 0;
-    background: #fff;
+    /* opacity: 0;
+    background: #fff; */
     font-weight: 600;
     font-size: 0.9rem;
 }
@@ -183,7 +183,7 @@ td .btn{
 .table tbody tr:hover .btn{
     border: 1px solid #ddd;
     opacity: 1;
-    background: #fff;
+    /* background: #fff; */
 }
 /* a{
     font-size: 0.8rem;
@@ -246,12 +246,12 @@ button.btn:hover{
     box-shadow: none;
     outline: none;
 } */
-@media(max-width:760px){
+@media screen and (max-width:760px){
     .table.activitites thead::after{
         top: 35px;
     }
 }
-@media(max-width:576px){
+@media  screen and (max-width:576px){
     .table.activitites thead::after{
         top: 55px;
     }
@@ -273,7 +273,7 @@ button.btn:hover{
         border: 1px solid #FFF;
     }
 }
-@media(max-width:400px){
+@media  screen and (max-width:400px){
     .notification{
         font-size: 0.7rem;
     }

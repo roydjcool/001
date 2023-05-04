@@ -1,0 +1,108 @@
+docker build --tag arya .
+docer run --publish 8888:8888 arya
+
+RUN -e MYSQL_ROOT_PASSWORD=123qwe,./ -it mysql:debian /bin/bash
+
+FROM alpine:3.13
+
+# Update packages and install dependencies
+RUN apk update && apk add python3 python3-dev build-base mysql mysql-dev mysql-client
+
+# Install pip and Django
+RUN python3 -m ensurepip
+RUN pip3 install --upgrade pip
+RUN pip3 install django
+
+# Run the application
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+# Set up MySQL
+RUN echo 'mysqld_safe &' > /tmp/config && \
+    echo 'mysqladmin --silent --wait=30 ping || exit 1' >> /tmp/config && \
+    echo 'mysql -u root -e "CREATE DATABASE mydb; GRANT ALL PRIVILEGES ON mydb.* TO 'username'@'localhost' IDENTIFIED BY 'password'; FLUSH PRIVILEGES;"' >> /tmp/config && \
+    echo 'mysqladmin --silent --wait=30 ping || exit 1' >> /tmp/config && \
+    echo 'mysql -u root -e "SHOW DATABASES;"' >> /tmp/config && \
+    echo 'mysqladmin --silent --wait=30 ping || exit 1' >> /tmp/config && \
+    echo 'mysql -u root -e "USE mydb; CREATE TABLE test(id INT);"' >> /tmp/config && \
+    echo 'mysqladmin --silent --wait=30 ping || exit 1' >> /tmp/config && \
+    echo 'mysql -u root -e "USE mydb; SELECT * FROM test;"' >> /tmp/config && \
+    echo 'mysqladmin --silent --wait=30 ping || exit 1' >> /tmp/config && \
+    bash /tmp/config && \
+    rm -f /tmp/config
+
+# Expose the port that Django will run on
+EXPOSE 8000
+
+# Start the Django server
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+
+
+#mysql-server install and configuration steps in debian linux
+
+#Step 1: Install MySQL Server
+
+1. Update the apt package index:
+   sudo apt update
+
+2. Install the MySQL server package:
+   sudo apt install mysql-server
+
+3. Run the MySQL secure installation script:
+   sudo mysql_secure_installation
+
+#Step 2: Configure MySQL Server
+
+1. Log in to MySQL as the root user:
+   sudo mysql -u root -p
+
+2. Create a new database:
+   CREATE DATABASE mydatabase;
+
+3. Create a new user:
+   CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypassword';
+
+4. Grant privileges to the user for the database:
+   GRANT ALL PRIVILEGES ON mydatabase.* TO 'myuser'@'localhost';
+
+5. Flush the privileges to apply the changes:
+   FLUSH PRIVILEGES;
+
+6. Exit the MySQL shell:
+   EXIT;
+
+
+
+The base image you want to use (e.g. Ubuntu, Alpine, etc.) -- whatever is best
+The language and version your project is written in (e.g. Python 3.8, Java 11, etc.) -- python 3.10
+Any dependencies or libraries your project needs (e.g. pip packages for Python, jars for Java, etc.) -- asgiref==3.6.0, Django==4.1.5, django-jazzmin==2.6.0,mysqlclient==2.1.1, Pillow==9.4.0, sqlparse==0.4.3, tzdata==2022.7
+The entry point for your project (e.g. the command to run your application) -- python manage.py runserver
+Any ports that your application uses and need to be exposed -- 8000
+The location of your application code in the image /app
+Any environmental variables that your application uses -- nope 
+Any volume that you need to mount -- nope
+database -- mysql -username == root and password == "123qwe,./" and database name == "arya"
+
+
+docker-compose.yml
+
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - '3306:3306'
+    environment:
+       MYSQL_DATABASE: 'arya'
+       MYSQL_USER: 'shasha'
+       MYSQL_PASSWORD: '1234'
+       MYSQL_ROOT_PASSWORD: '123qwe,./'
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app/arya001
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

@@ -2,6 +2,8 @@ from django.shortcuts import *
 from django.contrib import messages
 from django.http import JsonResponse
 
+from django.contrib.auth.decorators import login_required
+
 from store.models import Product, Cart
 
 def addtocart(request):
@@ -28,10 +30,20 @@ def addtocart(request):
 
 # cart section started.....................
 
-
+@login_required(login_url='loginpage')
 def viewcart(request):
     cart = Cart.objects.filter(user = request.user)
     # qty = Cart.objects.filter('product_qty')
     print(cart)
     context = {'cart': cart}
     return render(request,"store/products/cart.html",context)
+
+
+def deletecartitem(request):
+    if request.method == 'POST':
+        prod_id =  int(request.POST.get('product_id'))
+        if(Cart.objects.filter(user=request.user, product_id=prod_id)):
+            cartitem = Cart.objects.get(product_id=prod_id, user=request.user)
+            cartitem.delete()
+        return JsonResponse({'status':"Deleted Successfully"})
+    return redirect('/')

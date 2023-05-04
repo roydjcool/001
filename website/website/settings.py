@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'arya',
         'HOST':'localhost',
         'USER': 'root',
-        'PASSWORD': '123qwe,./',
+        'PASSWORD': 'rajnigandha',
         'PORT':'3306',
     }
 }

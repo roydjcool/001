@@ -1,7 +1,7 @@
 {% extends 'store/layouts/main.html' %}
 {% load static %}
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<link rel="stylesheet" href="{% static 'css/cat.css' %}">
 {% endblock %}
 {% block content %}
 
@@ -14,17 +14,19 @@
 <div class="wrapper">
   <div id="table" class="bg-white rounded">
         <hr class="items">
-        <div class="table-responsive">
-            <table class="table">
+        <div class="table-responsive-md">
+            <table class="table cartdata">
                 <thead>
                     <tr>
                         <th scope="col" class="text-uppercase header">item</th>
                         <th scope="col" class="text-uppercase">Name</th>
                         <th scope="col" class="text-uppercase">Quantity</th>
                         <th scope="col" class="text-uppercase">Price</th>
+                        
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="product_data">
+                    
                     {% if cart %}
                         {% for item in cart %}
                             {% comment %} <tr>{{item.product_qty}}</tr> {% endcomment %}
@@ -34,11 +36,12 @@
                                         <img src= "{{item.product.image.url}}" alt="">
                                     </div>
                                 </td>
-                            <td> {{item.product.slug}} </td>
+                            <td class="align-items-center"> {{item.product.slug}} </td>
+                            <input type="hidden" class="prod_id" value="{{item.product_id}}">
+                                {% csrf_token %}
                                 <td>{{item.product_qty}}</td>
-                                <td class="d-flex flex-column">{{item.product.selling_price | stringformat:'d'}}
-                                    <div><button class="btn-danger">Remove</button>
-                                </div></td>
+                                <td class="d-flex flex-column">{{item.product.selling_price | stringformat:'d'}}</td>
+                                   <td><button class="btn btn-danger delete-cart-item"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove</button></td>
                             </tr>
                         {% endfor %}   
                     {% else %}
@@ -67,34 +70,6 @@
         </div>
     </div>
 </div>
-<div class="py-5">
-<div class="container-fluid">
-<div class="row">
-    <div class="col-md-12">
-        {% comment %} <div class="card shadow product_data">
-            <div class="card-body">
-               {% if cart%}
-                 {% for item in cart %}
-                   
-
-
-                 {% endfor %}   
-               {% else %}
-                <h4> Your Cart is empty please add some item</h4>
-               {% endif %} 
-            </div>
-        </div> {% endcomment %}
-       
-    </div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-<br><br>
 
 
 {% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'store/layouts/main.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/cat.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+<div class="py-3 breadcrumb" style="background:#f7bf50;">
+<a class="text-white" href="{% url 'home' %}">Home /</a>
+<a class="text-white" href="{% url 'wishlist' %}">Wishlist /</a>
+</div>
+</div>
+<div>
+{{ wishlist }}
+
+</div>
+
+
+
+{% endblock content %}

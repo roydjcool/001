@@ -3,7 +3,7 @@ from . import views
 
 from django.conf import settings
 from django.conf.urls.static import static
-from store.controller import authview, cart
+from store.controller import authview, cart, wishlist
 
 urlpatterns = [
     path('',views.home, name="home"),
@@ -20,7 +20,10 @@ urlpatterns = [
     path('logout', authview.logoutpage, name="logoutpage"),
 
     path('add-to-cart', cart.addtocart, name="addtocart"),
-    path('cart', cart.viewcart, name="cart")
+    path('cart', cart.viewcart, name="cart"),
+    path('delete-cart-item', cart.deletecartitem, name="deletecartitem"),
+
+    path('wishlist', wishlist.index, name="wishlist"),
    
 ]
 
