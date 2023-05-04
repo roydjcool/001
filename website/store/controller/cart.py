@@ -33,8 +33,6 @@ def addtocart(request):
 @login_required(login_url='loginpage')
 def viewcart(request):
     cart = Cart.objects.filter(user = request.user)
-    # qty = Cart.objects.filter('product_qty')
-    print(cart)
     context = {'cart': cart}
     return render(request,"store/products/cart.html",context)
 
