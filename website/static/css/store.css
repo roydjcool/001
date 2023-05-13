@@ -82,5 +82,9 @@ color: green;
     padding: 20px;
 }
 
+.active{
+    font-weight: 500;
+}
+
 /* -----------------car section css stared------------- */
 

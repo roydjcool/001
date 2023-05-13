@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  {% comment %} <div class="container-fluid">
   <div class="row">
     <div class="col text-end">
       {% if request.user.is_authenticated %}
@@ -39,7 +39,7 @@
       {% endif %}
     </div>
   </div>
-</div>
+</div> {% endcomment %}
 <div class="container-fluid">  
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     
@@ -50,12 +50,12 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="{% url 'mens'%}" role="button" onmousehover="dropdown" aria-expanded="false">Men</a>
+            <a class="nav-link dropdown {% if request.resolver_match.url_name == 'mens' %}active{% endif %}" href="{% url 'mens'%}" role="button" onmousehover="dropdown" aria-expanded="false">Men</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">T-Shirt</a></li>
               <li><a class="dropdown-item" href="#">Shirt</a></li>
@@ -64,7 +64,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="{% url 'womens' %}" role="button" onmousehover="dropdown" aria-expanded="false">Women</a>
+            <a class="nav-link dropdown {% if request.resolver_match.url_name == 'womens' %}active{% endif %}" href="{% url 'womens' %}" role="button" onmousehover="dropdown" aria-expanded="false">Women</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">T-Shirt</a></li>
               <li><a class="dropdown-item" href="#">Shirt</a></li>
@@ -73,7 +73,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="{% url 'kids' %}" role="button" onmousehover="dropdown" aria-expanded="false">Kids</a>
+            <a class="nav-link dropdown {% if request.resolver_match.url_name == 'kids' %}active{% endif %}" href="{% url 'kids' %}" role="button" onmousehover="dropdown" aria-expanded="false">Kids</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">T-Shirt</a></li>
               <li><a class="dropdown-item" href="#">Shirt</a></li>
@@ -82,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="{% url 'collections' %}" role="button" onmousehover="dropdown" aria-expanded="false">Collection</a>
+            <a class="nav-link dropdown {% if request.resolver_match.url_name == 'collections' %}active{% endif %}" href="{% url 'collections' %}" role="button" onmousehover="dropdown" aria-expanded="false">Collection</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Wallet</a></li>
               <li><a class="dropdown-item" href="#">Belt</a></li>
@@ -90,17 +90,32 @@
               <li><a class="dropdown-item" href="#">Bagpacks</a></li>
             </ul>
           </li>
+        </div>
+        <div class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'cart' %}" cart ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="{% url 'wishlist' %}" Wishlist ><i class="fa fa-heart" aria-hidden="true"></i></a>
           </li>
-               <form class="d-flex" role="search">
+          <li>
+              <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
               </form>
-            </div>
+          </li>
+          <li class="nav-item">
+            {% if request.user.is_authenticated %}
+      <a class="nav-link" href="#">{{ request.user|title }}</a>
+          </li>
+          <li class="nav-item">
+        <a class="nav-link" href="{% url 'logoutpage' %}">Logout</a></li>
+      {% else %}
+        <li class="nav-item {% if request.resolver_match.url_name == 'loginpage' %}active{% endif %}"><a class="nav-link" href="{% url 'loginpage' %}">Login</a></li>
+        <li class="nav-item {% if request.resolver_match.url_name == 'register' %}active{% endif %}"><a class="nav-link" href="{% url 'register' %}">Sign Up</a></li>
+      {% endif %}
+          </li>
+        </div>
       </div>
     </nav>
 </div>
@@ -113,10 +128,10 @@
 <footer>
   <div class="footer-padding" class="footer-background">
       <div class="container-fluid">
-          <div class="row justify-content-between text-center" >
+          <div class="row justify-content-between" >
               <div class="col-12 col-sm-4 col-md-4 col-lg-4">
                   <div class="single-footer-caption mb-50">
-                      <div class="footer-tittle" style="">
+                      <div class="footer-tittle" >
                           <h4>Quick Links</h4>
                           <ul style="list-style-type: none; padding:0; margin:0;">
                               <li><a href="about.html">About</a></li>
