@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row product_data">
             <div class="col-12 p-2">
-              <div class="table-wishlist">
+              <div class="table-wishlist wishlistdata">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%">
                             <thead>
                                 <tr>
@@ -49,9 +49,9 @@
                                         </div>
                                     </td>
                                     {% comment %} {% if product.quantity > 0  %} {% endcomment %}
-                                    <td width="15%" class="text-center"><button type="button" class="btn btn-primary me-3 mt-2 addToCartBtn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart</button></td>
+                                    <td width="15%" class="text-center"><button type="button" class="btn btn-primary addToCartBtn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart</button></td>
                                     {% comment %} {% endif %} {% endcomment %}
-                                    <td width="15%" class="text-center"><button class="btn btn-danger delete-cart-item"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove</button></td>
+                                    <td width="15%" class="text-center"><button class="btn btn-danger delete-wishlist-item"><i class="fa fa-trash-o" aria-hidden="true"></i> Remove</button></td>
                                 </tr>
                                 {% endfor %}
                         {% else %}

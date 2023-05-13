@@ -29,3 +29,13 @@ def addtowishlist(request):
             return JsonResponse({'status': "Login To Continue"}) 
     return redirect('/')
 
+# Need to change cart with wishlist as function is calling cart module.
+
+def deletewishlistitem(request):
+    if request.method == 'POST':
+        prod_id =  int(request.POST.get('product_id'))
+        if(Wishlist.objects.filter(user=request.user, product_id=prod_id)):
+            wishlistitem = Wishlist.objects.get(product_id=prod_id, user=request.user)
+            wishlistitem.delete()
+        return JsonResponse({'status':"Deleted Successfully"})
+    return redirect('/')
