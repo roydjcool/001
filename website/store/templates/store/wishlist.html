@@ -17,19 +17,20 @@
             <div class="col-12 p-2">
               <div class="table-wishlist wishlistdata">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th width="30%" class="text-center"></th>
-                                    <th width="15%" class="text-center">Product Name</th>
-                                    <th width="10%" class="text-center">Unit Price</th>
-                                    <th width="15%" class="text-center">Quantity</th>
-                                    <th width="15%"></th>
-                                    <th width="15%"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
                                 {% if wishlist %}
                                 {% for item in wishlist %}
+                                <thead>
+                                    <tr>
+                                        <th width="30%" class="text-center"></th>
+                                        <th width="15%" class="text-center">Product Name</th>
+                                        <th width="10%" class="text-center">Unit Price</th>
+                                        <th width="15%" class="text-center">Quantity</th>
+                                        <th width="15%"></th>
+                                        <th width="15%"></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
                                 <tr>
                                     <input type="hidden" class="prod_id" value="{{item.product_id}}">
                                     {% csrf_token %}
@@ -55,7 +56,7 @@
                                 </tr>
                                 {% endfor %}
                         {% else %}
-                            <h4> Your Wishlist is empty please add some item</h4>
+                            <div class="container-fluid"><h4> No Items</h4></div>
                        {% endif %} 
                             </tbody>
                         </table>
